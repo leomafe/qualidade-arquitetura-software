@@ -18,7 +18,7 @@ import br.com.trier.springvespertino.services.exceptions.ObjectNotFound;
 import jakarta.transaction.Transactional;
 
 @Transactional
-public class UserServiceTest extends BaseTest{
+public class UserServiceImplTest extends BaseTest{
 	
 	@Autowired
 	UserService userService;

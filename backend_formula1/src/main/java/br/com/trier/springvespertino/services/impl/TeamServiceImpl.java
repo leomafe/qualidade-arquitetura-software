@@ -20,7 +20,7 @@ public class TeamServiceImpl implements TeamService{
 	
 	private void findByName(Team team) {
 		List<Team> lista = repository.findByNameIgnoreCase(team.getName());
-		if(lista.size()>1 && !lista.get(0).getId().equals(team.getId())) {
+		if(lista.size()>0 && !lista.get(0).getId().equals(team.getId())) {
 			throw new IntegrityViolation("Nome já existente: %s".formatted(team.getName()));
 		}
 	}

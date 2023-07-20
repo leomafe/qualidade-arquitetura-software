@@ -20,7 +20,7 @@ public class PilotServiceImpl implements PilotService {
 
 	@Override
 	public Pilot findById(Integer id) {
-		return repository.findById(id).orElseThrow(() -> new ObjectNotFound("Pilot %s não existe".formatted(id)));
+		return repository.findById(id).orElseThrow(() -> new ObjectNotFound("Piloto %s não existe".formatted(id)));
 	}
 
 	@Override
@@ -75,5 +75,6 @@ public class PilotServiceImpl implements PilotService {
 		}
 		return lista;
 	}
+
 
 }

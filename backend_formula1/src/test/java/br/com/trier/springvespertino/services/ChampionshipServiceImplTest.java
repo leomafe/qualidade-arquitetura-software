@@ -16,7 +16,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 @Transactional
-public class ChampionshipServiceTest extends BaseTest {
+public class ChampionshipServiceImplTest extends BaseTest {
 
     @Autowired
     private ChampionshipService service;

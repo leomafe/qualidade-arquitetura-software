@@ -17,7 +17,7 @@ import static org.mockito.Mockito.*;
 import static org.mockito.Mockito.times;
 
 @Transactional
-public class CountryServiceTest extends BaseTest {
+public class CountryServiceImplTest extends BaseTest {
 
     @Autowired
     private CountryService service;
@@ -64,7 +64,7 @@ public class CountryServiceTest extends BaseTest {
         when(repositoryMock.findById(1)).thenReturn(null);
 
         var exception = assertThrows(
-                ObjectNotFound.class, () -> service.delete(10));
+                ObjectNotFound.class, () -> service.delete(1));
         assertEquals("País não existe", exception.getMessage());
         verify(repositoryMock, times(0)).delete(null);
     }
@@ -83,7 +83,6 @@ public class CountryServiceTest extends BaseTest {
 
         var paises = service.listAll();
         assertTrue(paises.isEmpty() );
-
     }
 
     @Test
@@ -97,7 +96,7 @@ public class CountryServiceTest extends BaseTest {
     }
 
     @Test
-    @DisplayName("Teste buscar pais por ID inexistente")
+    @DisplayName("Teste buscar país por ID inexistente")
     @Sql({"classpath:/sqls/pais.sql"})
     void testFindByIdNonExists() {
 
@@ -107,7 +106,7 @@ public class CountryServiceTest extends BaseTest {
     }
 
     @Test
-    @DisplayName("Testes buscar paid pela descrição ignorando case sensitive")
+    @DisplayName("Testes buscar país pela descrição ignorando case sensitive")
     @Sql({"classpath:/sqls/pais.sql"})
     void testFindByNomeEqualsIgnoreCase() {
 
@@ -124,6 +123,7 @@ public class CountryServiceTest extends BaseTest {
         assertTrue(paises.isEmpty());
 
     }
+
 
 
 
